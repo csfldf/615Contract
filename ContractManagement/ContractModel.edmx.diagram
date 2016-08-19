@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8611ad11ba1a462790204f2d9c2f5f91" Name="Diagram1" >
+        <EntityTypeShape EntityType="ContractModel.ContractRegistryForm" Width="2.25" PointX="8" PointY="3.625" />
+        <EntityTypeShape EntityType="ContractModel.SubjectObject" Width="1.5" PointX="11.375" PointY="5.125" />
+        <AssociationConnector Association="ContractModel.ContractRegistryFormSubjectObject" />
+        <EntityTypeShape EntityType="ContractModel.Department" Width="1.5" PointX="11.25" PointY="3.25" />
+        <AssociationConnector Association="ContractModel.ContractRegistryFormDepartment" />
+        <EntityTypeShape EntityType="ContractModel.ArchiveMaterial" Width="1.5" PointX="11.75" PointY="1.25" />
+        <AssociationConnector Association="ContractModel.ContractRegistryFormArchiveMaterial" />
+        <EntityTypeShape EntityType="ContractModel.payTime" Width="1.5" PointX="4.75" PointY="0.5" />
+        <AssociationConnector Association="ContractModel.ContractRegistryFormpayTime" />
+        <EntityTypeShape EntityType="ContractModel.ReceiveTime" Width="1.5" PointX="4.75" PointY="4.625" />
+        <AssociationConnector Association="ContractModel.ContractRegistryFormReceiveTime" />
+        <EntityTypeShape EntityType="ContractModel.PreRegisterRecording" Width="1.5" PointX="4.75" PointY="8.125" />
+        <AssociationConnector Association="ContractModel.ContractRegistryFormPreRegisterRecording" />
+        <EntityTypeShape EntityType="ContractModel.FormalRegisterRecording" Width="2.625" PointX="4.75" PointY="10.625" />
+        <AssociationConnector Association="ContractModel.ContractRegistryFormFormalRegisterRecording" />
+        <EntityTypeShape EntityType="ContractModel.PayRecording" Width="2.5" PointX="7.75" PointY="12.25" />
+        <EntityTypeShape EntityType="ContractModel.ReceiveRecording" Width="1.5" PointX="11.125" PointY="12.125" />
+        <AssociationConnector Association="ContractModel.ContractRegistryFormReceiveRecording" />
+        <AssociationConnector Association="ContractModel.ContractRegistryFormPayRecording" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

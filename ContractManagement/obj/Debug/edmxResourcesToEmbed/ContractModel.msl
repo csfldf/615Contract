@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ContractModelStoreContainer" CdmEntityContainer="ContractModelContainer">
+    <EntitySetMapping Name="ContractRegistryForms">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.ContractRegistryForm)">
+        <MappingFragment StoreEntitySet="ContractRegistryForms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FinancialFlow" ColumnName="FinancialFlow" />
+          <ScalarProperty Name="IsForeignContract" ColumnName="IsForeignContract" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SubjectObjectOther" ColumnName="SubjectObjectOther" />
+          <ScalarProperty Name="FundsType" ColumnName="FundsType" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="ProjectNumber" ColumnName="ProjectNumber" />
+          <ScalarProperty Name="BudgetNumber" ColumnName="BudgetNumber" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="TargetCompanyName" ColumnName="TargetCompanyName" />
+          <ScalarProperty Name="ArchiveMaterialOther" ColumnName="ArchiveMaterialOther" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubjectObjects">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.SubjectObject)">
+        <MappingFragment StoreEntitySet="SubjectObjects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubjectObjectNumber" ColumnName="SubjectObjectNumber" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.Department)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmentNumber" ColumnName="DepartmentNumber" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchiveMaterials">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.ArchiveMaterial)">
+        <MappingFragment StoreEntitySet="ArchiveMaterials">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ArchiveMaterialNumber" ColumnName="ArchiveMaterialNumber" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payTimes">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.payTime)">
+        <MappingFragment StoreEntitySet="payTimes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ExpectedMoney" ColumnName="ExpectedMoney" />
+          <ScalarProperty Name="ExpectedCurrency" ColumnName="ExpectedCurrency" />
+          <ScalarProperty Name="PayCondition" ColumnName="PayCondition" />
+          <ScalarProperty Name="PayDate" ColumnName="PayDate" />
+          <ScalarProperty Name="PayCredential" ColumnName="PayCredential" />
+          <ScalarProperty Name="ActualMoney" ColumnName="ActualMoney" />
+          <ScalarProperty Name="ActualCurrency" ColumnName="ActualCurrency" />
+          <ScalarProperty Name="PayType" ColumnName="PayType" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="IsCredentialFiled" ColumnName="IsCredentialFiled" />
+          <ScalarProperty Name="Composition" ColumnName="Composition" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiveTimes">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.ReceiveTime)">
+        <MappingFragment StoreEntitySet="ReceiveTimes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ExpectedMoney" ColumnName="ExpectedMoney" />
+          <ScalarProperty Name="ExpectedCurrency" ColumnName="ExpectedCurrency" />
+          <ScalarProperty Name="ReceiveCondition" ColumnName="ReceiveCondition" />
+          <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+          <ScalarProperty Name="ActualMoney" ColumnName="ActualMoney" />
+          <ScalarProperty Name="ActualCurrency" ColumnName="ActualCurrency" />
+          <ScalarProperty Name="InvoiceState" ColumnName="InvoiceState" />
+          <ScalarProperty Name="InvoiceTime" ColumnName="InvoiceTime" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreRegisterRecordings">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.PreRegisterRecording)">
+        <MappingFragment StoreEntitySet="PreRegisterRecordings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractManagerComments" ColumnName="ContractManagerComments" />
+          <ScalarProperty Name="ProjectManagerComments" ColumnName="ProjectManagerComments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormalRegisterRecordings">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.FormalRegisterRecording)">
+        <MappingFragment StoreEntitySet="FormalRegisterRecordings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractManagerComments" ColumnName="ContractManagerComments" />
+          <ScalarProperty Name="ProjectManagerComments" ColumnName="ProjectManagerComments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayRecordings">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.PayRecording)">
+        <MappingFragment StoreEntitySet="PayRecordings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractManagerComments" ColumnName="ContractManagerComments" />
+          <ScalarProperty Name="ProjectManagerComments" ColumnName="ProjectManagerComments" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+          <ScalarProperty Name="ContractRegistryFormId1" ColumnName="ContractRegistryFormId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiveRecordings">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.ReceiveRecording)">
+        <MappingFragment StoreEntitySet="ReceiveRecordings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractManagerComments" ColumnName="ContractManagerComments" />
+          <ScalarProperty Name="ProjectManagerComments" ColumnName="ProjectManagerComments" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ContractRegistryFormPreRegisterRecording" TypeName="ContractModel.ContractRegistryFormPreRegisterRecording" StoreEntitySet="ContractRegistryForms">
+      <EndProperty Name="PreRegisterRecording">
+        <ScalarProperty Name="Id" ColumnName="PreRegisterRecording_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractRegistryForm">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ContractRegistryFormFormalRegisterRecording" TypeName="ContractModel.ContractRegistryFormFormalRegisterRecording" StoreEntitySet="ContractRegistryForms">
+      <EndProperty Name="FormalRegisterRecording">
+        <ScalarProperty Name="Id" ColumnName="FormalRegisterRecording_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractRegistryForm">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,722 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ContractModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ContractModelStoreContainer">
+    <EntitySet Name="ContractRegistryForms" EntityType="ContractModel.Store.ContractRegistryForms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubjectObjects" EntityType="ContractModel.Store.SubjectObjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departments" EntityType="ContractModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ArchiveMaterials" EntityType="ContractModel.Store.ArchiveMaterials" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="payTimes" EntityType="ContractModel.Store.payTimes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReceiveTimes" EntityType="ContractModel.Store.ReceiveTimes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PreRegisterRecordings" EntityType="ContractModel.Store.PreRegisterRecordings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FormalRegisterRecordings" EntityType="ContractModel.Store.FormalRegisterRecordings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PayRecordings" EntityType="ContractModel.Store.PayRecordings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReceiveRecordings" EntityType="ContractModel.Store.ReceiveRecordings" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ContractRegistryFormSubjectObject" Association="ContractModel.Store.ContractRegistryFormSubjectObject">
+      <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+      <End Role="SubjectObject" EntitySet="SubjectObjects" />
+    </AssociationSet>
+    <AssociationSet Name="ContractRegistryFormDepartment" Association="ContractModel.Store.ContractRegistryFormDepartment">
+      <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="ContractRegistryFormArchiveMaterial" Association="ContractModel.Store.ContractRegistryFormArchiveMaterial">
+      <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+      <End Role="ArchiveMaterial" EntitySet="ArchiveMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="ContractRegistryFormpayTime" Association="ContractModel.Store.ContractRegistryFormpayTime">
+      <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+      <End Role="payTime" EntitySet="payTimes" />
+    </AssociationSet>
+    <AssociationSet Name="ContractRegistryFormReceiveTime" Association="ContractModel.Store.ContractRegistryFormReceiveTime">
+      <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+      <End Role="ReceiveTime" EntitySet="ReceiveTimes" />
+    </AssociationSet>
+    <AssociationSet Name="ContractRegistryFormPreRegisterRecording" Association="ContractModel.Store.ContractRegistryFormPreRegisterRecording">
+      <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+      <End Role="PreRegisterRecording" EntitySet="PreRegisterRecordings" />
+    </AssociationSet>
+    <AssociationSet Name="ContractRegistryFormFormalRegisterRecording" Association="ContractModel.Store.ContractRegistryFormFormalRegisterRecording">
+      <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+      <End Role="FormalRegisterRecording" EntitySet="FormalRegisterRecordings" />
+    </AssociationSet>
+    <AssociationSet Name="ContractRegistryFormReceiveRecording" Association="ContractModel.Store.ContractRegistryFormReceiveRecording">
+      <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+      <End Role="ReceiveRecording" EntitySet="ReceiveRecordings" />
+    </AssociationSet>
+    <AssociationSet Name="ContractRegistryFormPayRecording" Association="ContractModel.Store.ContractRegistryFormPayRecording">
+      <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+      <End Role="PayRecording" EntitySet="PayRecordings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ContractRegistryForms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="longtext" Nullable="false" />
+    <Property Name="Name" Type="longtext" Nullable="false" />
+    <Property Name="FinancialFlow" Type="int" Nullable="false" />
+    <Property Name="IsForeignContract" Type="bool" Nullable="false" />
+    <Property Name="Description" Type="longtext" Nullable="false" />
+    <Property Name="SubjectObjectOther" Type="longtext" Nullable="false" />
+    <Property Name="FundsType" Type="int" Nullable="false" />
+    <Property Name="Operator" Type="longtext" Nullable="false" />
+    <Property Name="ProjectNumber" Type="longtext" Nullable="false" />
+    <Property Name="BudgetNumber" Type="longtext" Nullable="false" />
+    <Property Name="Money" Type="double" Nullable="false" />
+    <Property Name="Currency" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="TargetCompanyName" Type="longtext" Nullable="false" />
+    <Property Name="ArchiveMaterialOther" Type="longtext" Nullable="false" />
+    <Property Name="PreRegisterRecording_Id" Type="int" Nullable="false" />
+    <Property Name="FormalRegisterRecording_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubjectObjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubjectObjectNumber" Type="int" Nullable="false" />
+    <Property Name="ContractRegistryFormId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentNumber" Type="int" Nullable="false" />
+    <Property Name="ContractRegistryFormId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArchiveMaterials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArchiveMaterialNumber" Type="int" Nullable="false" />
+    <Property Name="ContractRegistryFormId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="payTimes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="ExpectedMoney" Type="double" Nullable="false" />
+    <Property Name="ExpectedCurrency" Type="int" Nullable="false" />
+    <Property Name="PayCondition" Type="longtext" Nullable="false" />
+    <Property Name="PayDate" Type="datetime" Nullable="false" />
+    <Property Name="PayCredential" Type="longtext" Nullable="false" />
+    <Property Name="ActualMoney" Type="double" Nullable="false" />
+    <Property Name="ActualCurrency" Type="int" Nullable="false" />
+    <Property Name="PayType" Type="int" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="IsCredentialFiled" Type="bool" Nullable="false" />
+    <Property Name="Composition" Type="longtext" Nullable="false" />
+    <Property Name="ContractRegistryFormId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReceiveTimes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="ExpectedMoney" Type="double" Nullable="false" />
+    <Property Name="ExpectedCurrency" Type="int" Nullable="false" />
+    <Property Name="ReceiveCondition" Type="longtext" Nullable="false" />
+    <Property Name="ReceiveDate" Type="datetime" Nullable="false" />
+    <Property Name="ActualMoney" Type="double" Nullable="false" />
+    <Property Name="ActualCurrency" Type="int" Nullable="false" />
+    <Property Name="InvoiceState" Type="int" Nullable="false" />
+    <Property Name="InvoiceTime" Type="datetime" Nullable="false" />
+    <Property Name="ContractRegistryFormId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PreRegisterRecordings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractManagerComments" Type="longtext" Nullable="false" />
+    <Property Name="ProjectManagerComments" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FormalRegisterRecordings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractManagerComments" Type="longtext" Nullable="false" />
+    <Property Name="ProjectManagerComments" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PayRecordings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractManagerComments" Type="longtext" Nullable="false" />
+    <Property Name="ProjectManagerComments" Type="longtext" Nullable="false" />
+    <Property Name="ContractRegistryFormId" Type="int" Nullable="false" />
+    <Property Name="ContractRegistryFormId1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReceiveRecordings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractManagerComments" Type="longtext" Nullable="false" />
+    <Property Name="ProjectManagerComments" Type="longtext" Nullable="false" />
+    <Property Name="ContractRegistryFormId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ContractRegistryFormSubjectObject">
+    <End Role="ContractRegistryForm" Type="ContractModel.Store.ContractRegistryForms" Multiplicity="1" />
+    <End Role="SubjectObject" Type="ContractModel.Store.SubjectObjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractRegistryForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubjectObject">
+        <PropertyRef Name="ContractRegistryFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractRegistryFormDepartment">
+    <End Role="ContractRegistryForm" Type="ContractModel.Store.ContractRegistryForms" Multiplicity="1" />
+    <End Role="Department" Type="ContractModel.Store.Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractRegistryForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="ContractRegistryFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractRegistryFormArchiveMaterial">
+    <End Role="ContractRegistryForm" Type="ContractModel.Store.ContractRegistryForms" Multiplicity="1" />
+    <End Role="ArchiveMaterial" Type="ContractModel.Store.ArchiveMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractRegistryForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArchiveMaterial">
+        <PropertyRef Name="ContractRegistryFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractRegistryFormpayTime">
+    <End Role="ContractRegistryForm" Type="ContractModel.Store.ContractRegistryForms" Multiplicity="1" />
+    <End Role="payTime" Type="ContractModel.Store.payTimes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractRegistryForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="payTime">
+        <PropertyRef Name="ContractRegistryFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractRegistryFormReceiveTime">
+    <End Role="ContractRegistryForm" Type="ContractModel.Store.ContractRegistryForms" Multiplicity="1" />
+    <End Role="ReceiveTime" Type="ContractModel.Store.ReceiveTimes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractRegistryForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReceiveTime">
+        <PropertyRef Name="ContractRegistryFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractRegistryFormPreRegisterRecording">
+    <End Role="ContractRegistryForm" Type="ContractModel.Store.ContractRegistryForms" Multiplicity="*" />
+    <End Role="PreRegisterRecording" Type="ContractModel.Store.PreRegisterRecordings" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PreRegisterRecording">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractRegistryForm">
+        <PropertyRef Name="PreRegisterRecording_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractRegistryFormFormalRegisterRecording">
+    <End Role="ContractRegistryForm" Type="ContractModel.Store.ContractRegistryForms" Multiplicity="*" />
+    <End Role="FormalRegisterRecording" Type="ContractModel.Store.FormalRegisterRecordings" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="FormalRegisterRecording">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractRegistryForm">
+        <PropertyRef Name="FormalRegisterRecording_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractRegistryFormReceiveRecording">
+    <End Role="ContractRegistryForm" Type="ContractModel.Store.ContractRegistryForms" Multiplicity="1" />
+    <End Role="ReceiveRecording" Type="ContractModel.Store.ReceiveRecordings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractRegistryForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReceiveRecording">
+        <PropertyRef Name="ContractRegistryFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractRegistryFormPayRecording">
+    <End Role="ContractRegistryForm" Type="ContractModel.Store.ContractRegistryForms" Multiplicity="1" />
+    <End Role="PayRecording" Type="ContractModel.Store.PayRecordings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractRegistryForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PayRecording">
+        <PropertyRef Name="ContractRegistryFormId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ContractModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ContractModelContainer" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="ContractRegistryForms" EntityType="ContractModel.ContractRegistryForm" />
+          <EntitySet Name="SubjectObjects" EntityType="ContractModel.SubjectObject" />
+          <AssociationSet Name="ContractRegistryFormSubjectObject" Association="ContractModel.ContractRegistryFormSubjectObject">
+            <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+            <End Role="SubjectObject" EntitySet="SubjectObjects" />
+          </AssociationSet>
+          <EntitySet Name="Departments" EntityType="ContractModel.Department" />
+          <AssociationSet Name="ContractRegistryFormDepartment" Association="ContractModel.ContractRegistryFormDepartment">
+            <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <EntitySet Name="ArchiveMaterials" EntityType="ContractModel.ArchiveMaterial" />
+          <AssociationSet Name="ContractRegistryFormArchiveMaterial" Association="ContractModel.ContractRegistryFormArchiveMaterial">
+            <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+            <End Role="ArchiveMaterial" EntitySet="ArchiveMaterials" />
+          </AssociationSet>
+          <EntitySet Name="payTimes" EntityType="ContractModel.payTime" />
+          <AssociationSet Name="ContractRegistryFormpayTime" Association="ContractModel.ContractRegistryFormpayTime">
+            <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+            <End Role="payTime" EntitySet="payTimes" />
+          </AssociationSet>
+          <EntitySet Name="ReceiveTimes" EntityType="ContractModel.ReceiveTime" />
+          <AssociationSet Name="ContractRegistryFormReceiveTime" Association="ContractModel.ContractRegistryFormReceiveTime">
+            <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+            <End Role="ReceiveTime" EntitySet="ReceiveTimes" />
+          </AssociationSet>
+          <EntitySet Name="PreRegisterRecordings" EntityType="ContractModel.PreRegisterRecording" />
+          <AssociationSet Name="ContractRegistryFormPreRegisterRecording" Association="ContractModel.ContractRegistryFormPreRegisterRecording">
+            <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+            <End Role="PreRegisterRecording" EntitySet="PreRegisterRecordings" />
+          </AssociationSet>
+          <EntitySet Name="FormalRegisterRecordings" EntityType="ContractModel.FormalRegisterRecording" />
+          <AssociationSet Name="ContractRegistryFormFormalRegisterRecording" Association="ContractModel.ContractRegistryFormFormalRegisterRecording">
+            <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+            <End Role="FormalRegisterRecording" EntitySet="FormalRegisterRecordings" />
+          </AssociationSet>
+          <EntitySet Name="PayRecordings" EntityType="ContractModel.PayRecording" />
+          <EntitySet Name="ReceiveRecordings" EntityType="ContractModel.ReceiveRecording" />
+          <AssociationSet Name="ContractRegistryFormReceiveRecording" Association="ContractModel.ContractRegistryFormReceiveRecording">
+            <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+            <End Role="ReceiveRecording" EntitySet="ReceiveRecordings" />
+          </AssociationSet>
+          <AssociationSet Name="ContractRegistryFormPayRecording" Association="ContractModel.ContractRegistryFormPayRecording">
+            <End Role="ContractRegistryForm" EntitySet="ContractRegistryForms" />
+            <End Role="PayRecording" EntitySet="PayRecordings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ContractRegistryForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="FinancialFlow" Type="Int32" Nullable="false" />
+          <Property Name="IsForeignContract" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="SubjectObjectOther" Type="String" Nullable="false" />
+          <NavigationProperty Name="SubjectObjects" Relationship="ContractModel.ContractRegistryFormSubjectObject" FromRole="ContractRegistryForm" ToRole="SubjectObject" />
+          <Property Name="FundsType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Departments" Relationship="ContractModel.ContractRegistryFormDepartment" FromRole="ContractRegistryForm" ToRole="Department" />
+          <Property Name="Operator" Type="String" Nullable="false" />
+          <Property Name="ProjectNumber" Type="String" Nullable="false" />
+          <Property Name="BudgetNumber" Type="String" Nullable="false" />
+          <Property Name="Money" Type="Double" Nullable="false" />
+          <Property Name="Currency" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" />
+          <Property Name="TargetCompanyName" Type="String" Nullable="false" />
+          <NavigationProperty Name="ArchiveMaterials" Relationship="ContractModel.ContractRegistryFormArchiveMaterial" FromRole="ContractRegistryForm" ToRole="ArchiveMaterial" />
+          <Property Name="ArchiveMaterialOther" Type="String" Nullable="false" />
+          <NavigationProperty Name="payTimes" Relationship="ContractModel.ContractRegistryFormpayTime" FromRole="ContractRegistryForm" ToRole="payTime" />
+          <NavigationProperty Name="ReceiveTimes" Relationship="ContractModel.ContractRegistryFormReceiveTime" FromRole="ContractRegistryForm" ToRole="ReceiveTime" />
+          <NavigationProperty Name="PreRegisterRecording" Relationship="ContractModel.ContractRegistryFormPreRegisterRecording" FromRole="ContractRegistryForm" ToRole="PreRegisterRecording" />
+          <NavigationProperty Name="FormalRegisterRecording" Relationship="ContractModel.ContractRegistryFormFormalRegisterRecording" FromRole="ContractRegistryForm" ToRole="FormalRegisterRecording" />
+          <NavigationProperty Name="ReceiveRecordings" Relationship="ContractModel.ContractRegistryFormReceiveRecording" FromRole="ContractRegistryForm" ToRole="ReceiveRecording" />
+          <NavigationProperty Name="PayRecordings" Relationship="ContractModel.ContractRegistryFormPayRecording" FromRole="ContractRegistryForm" ToRole="PayRecording" />
+        </EntityType>
+        <EntityType Name="SubjectObject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectObjectNumber" Type="Int32" Nullable="false" />
+          <Property Name="ContractRegistryFormId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractRegistryFormSubjectObject">
+          <End Type="ContractModel.ContractRegistryForm" Role="ContractRegistryForm" Multiplicity="1" />
+          <End Type="ContractModel.SubjectObject" Role="SubjectObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractRegistryForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubjectObject">
+              <PropertyRef Name="ContractRegistryFormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentNumber" Type="Int32" Nullable="false" />
+          <Property Name="ContractRegistryFormId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractRegistryFormDepartment">
+          <End Type="ContractModel.ContractRegistryForm" Role="ContractRegistryForm" Multiplicity="1" />
+          <End Type="ContractModel.Department" Role="Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractRegistryForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="ContractRegistryFormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ArchiveMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArchiveMaterialNumber" Type="Int32" Nullable="false" />
+          <Property Name="ContractRegistryFormId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractRegistryFormArchiveMaterial">
+          <End Type="ContractModel.ContractRegistryForm" Role="ContractRegistryForm" Multiplicity="1" />
+          <End Type="ContractModel.ArchiveMaterial" Role="ArchiveMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractRegistryForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ArchiveMaterial">
+              <PropertyRef Name="ContractRegistryFormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="payTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="ExpectedMoney" Type="Double" Nullable="false" />
+          <Property Name="ExpectedCurrency" Type="Int32" Nullable="false" />
+          <Property Name="PayCondition" Type="String" Nullable="false" />
+          <Property Name="PayDate" Type="DateTime" Nullable="false" />
+          <Property Name="PayCredential" Type="String" Nullable="false" />
+          <Property Name="ActualMoney" Type="Double" Nullable="false" />
+          <Property Name="ActualCurrency" Type="Int32" Nullable="false" />
+          <Property Name="PayType" Type="Int32" Nullable="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" />
+          <Property Name="IsCredentialFiled" Type="Boolean" Nullable="false" />
+          <Property Name="Composition" Type="String" Nullable="false" />
+          <Property Name="ContractRegistryFormId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractRegistryFormpayTime">
+          <End Type="ContractModel.ContractRegistryForm" Role="ContractRegistryForm" Multiplicity="1" />
+          <End Type="ContractModel.payTime" Role="payTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractRegistryForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="payTime">
+              <PropertyRef Name="ContractRegistryFormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ReceiveTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="ExpectedMoney" Type="Double" Nullable="false" />
+          <Property Name="ExpectedCurrency" Type="Int32" Nullable="false" />
+          <Property Name="ReceiveCondition" Type="String" Nullable="false" />
+          <Property Name="ReceiveDate" Type="DateTime" Nullable="false" />
+          <Property Name="ActualMoney" Type="Double" Nullable="false" />
+          <Property Name="ActualCurrency" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceState" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceTime" Type="DateTime" Nullable="false" />
+          <Property Name="ContractRegistryFormId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractRegistryFormReceiveTime">
+          <End Type="ContractModel.ContractRegistryForm" Role="ContractRegistryForm" Multiplicity="1" />
+          <End Type="ContractModel.ReceiveTime" Role="ReceiveTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractRegistryForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceiveTime">
+              <PropertyRef Name="ContractRegistryFormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PreRegisterRecording">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractManagerComments" Type="String" Nullable="false" />
+          <Property Name="ProjectManagerComments" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractRegistryFormPreRegisterRecording">
+          <End Type="ContractModel.ContractRegistryForm" Role="ContractRegistryForm" Multiplicity="1" />
+          <End Type="ContractModel.PreRegisterRecording" Role="PreRegisterRecording" Multiplicity="1" />
+        </Association>
+        <EntityType Name="FormalRegisterRecording">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractManagerComments" Type="String" Nullable="false" />
+          <Property Name="ProjectManagerComments" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractRegistryFormFormalRegisterRecording">
+          <End Type="ContractModel.ContractRegistryForm" Role="ContractRegistryForm" Multiplicity="1" />
+          <End Type="ContractModel.FormalRegisterRecording" Role="FormalRegisterRecording" Multiplicity="1" />
+        </Association>
+        <EntityType Name="PayRecording">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractManagerComments" Type="String" Nullable="false" />
+          <Property Name="ProjectManagerComments" Type="String" Nullable="false" />
+          <Property Name="ContractRegistryFormId" Type="Int32" Nullable="false" />
+          <Property Name="ContractRegistryFormId1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReceiveRecording">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractManagerComments" Type="String" Nullable="false" />
+          <Property Name="ProjectManagerComments" Type="String" Nullable="false" />
+          <Property Name="ContractRegistryFormId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ContractRegistryFormReceiveRecording">
+          <End Type="ContractModel.ContractRegistryForm" Role="ContractRegistryForm" Multiplicity="1" />
+          <End Type="ContractModel.ReceiveRecording" Role="ReceiveRecording" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractRegistryForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceiveRecording">
+              <PropertyRef Name="ContractRegistryFormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ContractRegistryFormPayRecording">
+          <End Type="ContractModel.ContractRegistryForm" Role="ContractRegistryForm" Multiplicity="1" />
+          <End Type="ContractModel.PayRecording" Role="PayRecording" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractRegistryForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PayRecording">
+              <PropertyRef Name="ContractRegistryFormId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ContractModelStoreContainer" CdmEntityContainer="ContractModelContainer">
+    <EntitySetMapping Name="ContractRegistryForms">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.ContractRegistryForm)">
+        <MappingFragment StoreEntitySet="ContractRegistryForms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FinancialFlow" ColumnName="FinancialFlow" />
+          <ScalarProperty Name="IsForeignContract" ColumnName="IsForeignContract" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SubjectObjectOther" ColumnName="SubjectObjectOther" />
+          <ScalarProperty Name="FundsType" ColumnName="FundsType" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="ProjectNumber" ColumnName="ProjectNumber" />
+          <ScalarProperty Name="BudgetNumber" ColumnName="BudgetNumber" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="TargetCompanyName" ColumnName="TargetCompanyName" />
+          <ScalarProperty Name="ArchiveMaterialOther" ColumnName="ArchiveMaterialOther" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubjectObjects">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.SubjectObject)">
+        <MappingFragment StoreEntitySet="SubjectObjects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubjectObjectNumber" ColumnName="SubjectObjectNumber" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.Department)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmentNumber" ColumnName="DepartmentNumber" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchiveMaterials">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.ArchiveMaterial)">
+        <MappingFragment StoreEntitySet="ArchiveMaterials">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ArchiveMaterialNumber" ColumnName="ArchiveMaterialNumber" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payTimes">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.payTime)">
+        <MappingFragment StoreEntitySet="payTimes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ExpectedMoney" ColumnName="ExpectedMoney" />
+          <ScalarProperty Name="ExpectedCurrency" ColumnName="ExpectedCurrency" />
+          <ScalarProperty Name="PayCondition" ColumnName="PayCondition" />
+          <ScalarProperty Name="PayDate" ColumnName="PayDate" />
+          <ScalarProperty Name="PayCredential" ColumnName="PayCredential" />
+          <ScalarProperty Name="ActualMoney" ColumnName="ActualMoney" />
+          <ScalarProperty Name="ActualCurrency" ColumnName="ActualCurrency" />
+          <ScalarProperty Name="PayType" ColumnName="PayType" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="IsCredentialFiled" ColumnName="IsCredentialFiled" />
+          <ScalarProperty Name="Composition" ColumnName="Composition" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiveTimes">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.ReceiveTime)">
+        <MappingFragment StoreEntitySet="ReceiveTimes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ExpectedMoney" ColumnName="ExpectedMoney" />
+          <ScalarProperty Name="ExpectedCurrency" ColumnName="ExpectedCurrency" />
+          <ScalarProperty Name="ReceiveCondition" ColumnName="ReceiveCondition" />
+          <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+          <ScalarProperty Name="ActualMoney" ColumnName="ActualMoney" />
+          <ScalarProperty Name="ActualCurrency" ColumnName="ActualCurrency" />
+          <ScalarProperty Name="InvoiceState" ColumnName="InvoiceState" />
+          <ScalarProperty Name="InvoiceTime" ColumnName="InvoiceTime" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreRegisterRecordings">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.PreRegisterRecording)">
+        <MappingFragment StoreEntitySet="PreRegisterRecordings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractManagerComments" ColumnName="ContractManagerComments" />
+          <ScalarProperty Name="ProjectManagerComments" ColumnName="ProjectManagerComments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormalRegisterRecordings">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.FormalRegisterRecording)">
+        <MappingFragment StoreEntitySet="FormalRegisterRecordings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractManagerComments" ColumnName="ContractManagerComments" />
+          <ScalarProperty Name="ProjectManagerComments" ColumnName="ProjectManagerComments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayRecordings">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.PayRecording)">
+        <MappingFragment StoreEntitySet="PayRecordings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractManagerComments" ColumnName="ContractManagerComments" />
+          <ScalarProperty Name="ProjectManagerComments" ColumnName="ProjectManagerComments" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+          <ScalarProperty Name="ContractRegistryFormId1" ColumnName="ContractRegistryFormId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiveRecordings">
+      <EntityTypeMapping TypeName="IsTypeOf(ContractModel.ReceiveRecording)">
+        <MappingFragment StoreEntitySet="ReceiveRecordings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractManagerComments" ColumnName="ContractManagerComments" />
+          <ScalarProperty Name="ProjectManagerComments" ColumnName="ProjectManagerComments" />
+          <ScalarProperty Name="ContractRegistryFormId" ColumnName="ContractRegistryFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ContractRegistryFormPreRegisterRecording" TypeName="ContractModel.ContractRegistryFormPreRegisterRecording" StoreEntitySet="ContractRegistryForms">
+      <EndProperty Name="PreRegisterRecording">
+        <ScalarProperty Name="Id" ColumnName="PreRegisterRecording_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractRegistryForm">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ContractRegistryFormFormalRegisterRecording" TypeName="ContractModel.ContractRegistryFormFormalRegisterRecording" StoreEntitySet="ContractRegistryForms">
+      <EndProperty Name="FormalRegisterRecording">
+        <ScalarProperty Name="Id" ColumnName="FormalRegisterRecording_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractRegistryForm">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToMySQL.tt" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
